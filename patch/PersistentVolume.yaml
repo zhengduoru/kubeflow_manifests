@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: authservice-pv
+  labels:
+    type: local
+spec:
+  storageClassName: local-path
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/authservice"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: katib-mysql
+  labels:
+    type: local
+spec:
+  storageClassName: local-path 
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/mysql"
